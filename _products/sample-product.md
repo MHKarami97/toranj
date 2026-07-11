@@ -4,7 +4,7 @@ slug: product-ava-bag
 sku: "BAG-1024"
 price: 1250000
 old_price: 1550000
-category: "کیف و چرم"
+category: "leather"
 tags: [کیف, چرم, زنانه]
 images:
   - /assets/img/products/01.png
