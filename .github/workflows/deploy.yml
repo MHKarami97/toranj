@@ -31,7 +31,7 @@ jobs:
         run: npm ci
 
       - name: Build Tailwind CSS
-        run: npx @tailwindcss/cli -i ./assets/css/main.css -o ./_site_css/main.css --minify
+        run: npx @tailwindcss/cli -i ./assets/css/main.css -o ./_site_css/compiled.css --minify
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
@@ -49,7 +49,7 @@ jobs:
           JEKYLL_ENV: production
 
       - name: Copy Tailwind CSS to _site
-        run: cp ./_site_css/main.css ./_site/assets/css/main.css
+        run: cp ./_site_css/compiled.css ./_site/assets/css/compiled.css
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
