@@ -92,12 +92,11 @@ schema_type: product
         {% for variant in page.variants %}
         <div class="product-variant-group">
           <p class="product-variant-label">{{ variant.name }}:</p>
-          <div class="product-variant-options">
+          <div class="product-variant-options" data-variant-group>
             {% for option in variant.options %}
             <button
               class="variant-btn {% if forloop.first %}active{% endif %}"
-              onclick="this.closest('[data-variant-group]')?.querySelectorAll('.variant-btn').forEach(b=>b.classList.remove('active'));this.classList.add('active')"
-              data-variant-group
+              onclick="this.closest('[data-variant-group]').querySelectorAll('.variant-btn').forEach(b=>b.classList.remove('active'));this.classList.add('active')"
               type="button"
             >
               {{ option }}
