@@ -45,3 +45,15 @@
   color: "#16a34a"
   bg_color: "#f0fdf4"
   image: "/assets/img/categories/other-handmade.png"
+
+- name: "چرم"
+  slug: "leather"
+  color: "#78350f"
+  bg_color: "#fef3e2"
+  image: "/assets/img/categories/leather.jpg"
+
+- name: "شمع"
+  slug: "candle"
+  color: "#a16207"
+  bg_color: "#fefce8"
+  image: "/assets/img/categories/candle.jpg"
