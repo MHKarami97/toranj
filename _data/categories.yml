@@ -50,10 +50,10 @@
   slug: "leather"
   color: "#78350f"
   bg_color: "#fef3e2"
-  image: "/assets/img/categories/leather.jpg"
+  image: "/assets/img/categories/leather.png"
 
 - name: "شمع"
   slug: "candle"
   color: "#a16207"
   bg_color: "#fefce8"
-  image: "/assets/img/categories/candle.jpg"
+  image: "/assets/img/categories/candle.png"
