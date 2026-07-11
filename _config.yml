@@ -1,0 +1,57 @@
+title: "فروشگاه آنلاین"
+description: "خرید آنلاین محصولات با کیفیت"
+url: ""
+baseurl: "/toranj"
+lang: "fa"
+direction: "rtl"
+
+author:
+  name: "نام فروشگاه"
+  email: "info@example.com"
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-paginate
+
+paginate: 12
+paginate_path: "/products/page:num/"
+
+collections:
+  products:
+    output: true
+    permalink: /products/:slug/
+
+defaults:
+  - scope:
+      path: ""
+      type: "products"
+    values:
+      layout: "product"
+  - scope:
+      path: "_pages"
+    values:
+      layout: "page"
+
+exclude:
+  - node_modules/
+  - package.json
+  - package-lock.json
+  - tailwind.config.js
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+
+twitter:
+  username: yourusername
+social:
+  name: "فروشگاه آنلاین"
+  links:
+    - https://www.instagram.com/yourshop
+    - https://t.me/yourshop
+
+date_format: "%Y/%m/%d"
+
+sass:
+  style: compressed

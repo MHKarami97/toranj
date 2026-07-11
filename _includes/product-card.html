@@ -1,0 +1,62 @@
+{% comment %}
+  Usage: {% include product-card.html product=product %}
+{% endcomment %}
+
+{% assign product = include.product %}
+
+<article class="product-card" itemscope itemtype="https://schema.org/Product">
+  <a href="{{ product.url | relative_url }}" style="text-decoration:none;color:inherit;display:block;">
+    <div style="padding:12px 12px 0;position:relative;">
+      {% if product.old_price %}
+      <span class="price-discount" style="position:absolute;top:20px;right:20px;z-index:1;">
+        {% assign discount = product.old_price | minus: product.price | times: 100 | divided_by: product.old_price %}
+        {{ discount }}٪ تخفیف
+      </span>
+      {% endif %}
+
+      <img
+        class="product-card__image"
+        src="{{ product.images[0] | relative_url }}"
+        alt="{{ product.title }} — تصویر محصول"
+        loading="lazy"
+        width="400"
+        height="400"
+        itemprop="image"
+      >
+    </div>
+
+    <div class="product-card__body">
+      {% if product.brand %}
+      <p style="font-size:11px;color:var(--color-muted-gray);margin:0 0 4px;letter-spacing:-0.02em;" itemprop="brand">{{ product.brand }}</p>
+      {% endif %}
+
+      <h3 style="font-size:14px;font-weight:600;margin:0 0 8px;line-height:1.4;letter-spacing:-0.02em;" itemprop="name">{{ product.title }}</h3>
+
+      {% if product.short_description %}
+      <p style="font-size:12px;color:var(--color-muted-gray);margin:0 0 10px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">
+        {{ product.short_description }}
+      </p>
+      {% endif %}
+
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+        <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;">
+          <span class="price-current" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+            <meta itemprop="priceCurrency" content="IRR">
+            <span itemprop="price" content="{{ product.price }}">{{ product.price | number_with_delimiter }} تومان</span>
+          </span>
+          {% if product.old_price %}
+          <span class="price-old">{{ product.old_price | number_with_delimiter }}</span>
+          {% endif %}
+        </div>
+
+        {% if product.availability == 'in_stock' %}
+        <span class="badge-in-stock" itemprop="availability" content="https://schema.org/InStock">موجود</span>
+        {% elsif product.availability == 'out_of_stock' %}
+        <span class="badge-out-of-stock" itemprop="availability" content="https://schema.org/OutOfStock">ناموجود</span>
+        {% elsif product.availability == 'preorder' %}
+        <span class="badge-preorder" itemprop="availability" content="https://schema.org/PreOrder">پیش‌فروش</span>
+        {% endif %}
+      </div>
+    </div>
+  </a>
+</article>

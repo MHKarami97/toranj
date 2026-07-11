@@ -1,0 +1,23 @@
+- name: "پوشاک"
+  slug: "clothing"
+  color: "#5433eb"
+  bg_color: "#f2f4f5"
+  image: "/assets/img/categories/clothing.jpg"
+
+- name: "کیف و چرم"
+  slug: "bags"
+  color: "#dc2626"
+  bg_color: "#fef2f2"
+  image: "/assets/img/categories/bags.jpg"
+
+- name: "اکسسوری"
+  slug: "accessories"
+  color: "#16a34a"
+  bg_color: "#f0fdf4"
+  image: "/assets/img/categories/accessories.jpg"
+
+- name: "کفش"
+  slug: "shoes"
+  color: "#d97706"
+  bg_color: "#fffbeb"
+  image: "/assets/img/categories/shoes.jpg"
