@@ -7,9 +7,9 @@ old_price: 1550000
 category: "کیف و چرم"
 tags: [کیف, چرم, زنانه]
 images:
-  - /assets/img/products/ava-bag-1.jpg
-  - /assets/img/products/ava-bag-2.jpg
-  - /assets/img/products/ava-bag-3.jpg
+  - /assets/img/products/01.png
+  - /assets/img/products/02.png
+  - /assets/img/products/03.png
 availability: in_stock
 brand: "چرم آوا"
 variants:

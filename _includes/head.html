@@ -1,11 +1,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#5433eb">
 
-{% seo %}
+<title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
 
-<link rel="stylesheet" href="{{ '/assets/css/compiled.css' | relative_url }}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<meta name="description" content="{{ page.description | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
 
 {% if page.canonical_url %}
 <link rel="canonical" href="{{ page.canonical_url }}">
@@ -13,7 +14,76 @@
 <link rel="canonical" href="{{ page.url | absolute_url }}">
 {% endif %}
 
+<link rel="alternate" hreflang="fa-ir" href="{{ page.url | absolute_url }}">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/img/favicon.png' | relative_url }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/img/favicon.png' | relative_url }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/img/favicon.png' | relative_url }}">
+<link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
+
+<!-- Open Graph -->
+<meta property="og:type" content="{% if page.schema_type == 'product' %}product{% else %}website{% endif %}">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+<meta property="og:description" content="{{ page.description | default: site.description | strip_html | strip_newlines | truncate: 200 }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:locale" content="fa_IR">
+{% if page.images %}
+<meta property="og:image" content="{{ page.images[0] | absolute_url }}">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="800">
+{% elsif site.data.settings.default_og_image %}
+<meta property="og:image" content="{{ site.data.settings.default_og_image | absolute_url }}">
+{% endif %}
+
+{% if page.schema_type == 'product' %}
+<meta property="product:price:amount" content="{{ page.price }}">
+<meta property="product:price:currency" content="IRR">
+<meta property="product:availability" content="{% if page.availability == 'in_stock' %}instock{% elsif page.availability == 'preorder' %}preorder{% else %}oos{% endif %}">
+{% endif %}
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+<meta name="twitter:description" content="{{ page.description | default: site.description | strip_html | strip_newlines | truncate: 200 }}">
+{% if page.images %}
+<meta name="twitter:image" content="{{ page.images[0] | absolute_url }}">
+{% endif %}
+
+<link rel="stylesheet" href="{{ '/assets/css/compiled.css' | relative_url }}">
 <link rel="preload" href="{{ '/assets/fonts/Vazirmatn-Regular.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+
+<!-- Organization Schema (site-wide) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "{{ site.title | escape }}",
+  "url": "{{ '/' | absolute_url }}",
+  {% if site.data.settings.default_og_image %}"logo": "{{ site.data.settings.default_og_image | absolute_url }}",{% endif %}
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "{{ site.data.settings.phone }}",
+    "contactType": "customer service"
+  }
+}
+</script>
+
+<!-- WebSite Schema (site-wide, enables sitelinks search box) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ site.title | escape }}",
+  "url": "{{ '/' | absolute_url }}",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "{{ '/products/?q={search_term_string}' | absolute_url }}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
 
 {% if page.schema_type == 'product' %}
 <script type="application/ld+json">
