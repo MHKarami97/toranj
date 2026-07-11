@@ -1,5 +1,3 @@
-Jekyll.logger.info "CategoryPagesGenerator:", "Plugin file loaded successfully."
-
 module Jekyll
   class CategoryPage < Jekyll::PageWithoutAFile
     def initialize(site, base, slug, category_name)
