@@ -22,6 +22,9 @@ collections:
   products:
     output: true
     permalink: /products/:slug/
+  pages:
+    output: true
+    permalink: /:path/   
 
 defaults:
   - scope:
