@@ -1,0 +1,22 @@
+﻿.output
+.nuxt
+.nitro
+node_modules
+dist
+.env
+.DS_Store
+*.log
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+obj/
+bin/
+
+# Test Coverage
+coverage/
+.nyc_output/
+test-results/
