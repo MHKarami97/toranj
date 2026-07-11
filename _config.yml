@@ -36,12 +36,22 @@ defaults:
 
 exclude:
   - node_modules/
+  - vendor/
   - package.json
   - package-lock.json
   - tailwind.config.js
   - Gemfile
   - Gemfile.lock
   - README.md
+  - "*.gem"
+  - "*.gemspec"
+  - docs
+  - tools
+  - README.md
+  - LICENSE
+  - purgecss.js
+  - "*.config.js"
+  - "package*.json"
 
 twitter:
   username: yourusername
