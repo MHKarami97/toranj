@@ -79,7 +79,7 @@
   "url": "{{ '/' | absolute_url }}",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "{{ '/products/?q={search_term_string}' | absolute_url }}",
+    "target": "{{ '/products/?q=' | absolute_url }}{% raw %}{search_term_string}{% endraw %}",
     "query-input": "required name=search_term_string"
   }
 }
