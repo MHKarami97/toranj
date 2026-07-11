@@ -2,30 +2,30 @@
 layout: default
 ---
 
-<div style="max-width:1200px;margin:0 auto;padding:32px 16px 80px;">
+<div class="container--page">
 
   <nav aria-label="مسیر صفحه" class="breadcrumb">
     <a href="{{ '/' | relative_url }}">خانه</a>
     <span class="rtl-flip">›</span>
     <a href="{{ '/categories/' | relative_url }}">دسته‌بندی‌ها</a>
     <span class="rtl-flip">›</span>
-    <span style="color:var(--color-ink-black);">{{ page.title }}</span>
+    <span class="breadcrumb__current">{{ page.title }}</span>
   </nav>
 
-  <h1 style="font-size:24px;font-weight:700;letter-spacing:-0.04em;margin-bottom:32px;">{{ page.title }}</h1>
+  <h1 class="page-title">{{ page.title }}</h1>
 
   {% assign cat_products = site.products | where: "category", page.category_name %}
 
   {% if cat_products.size > 0 %}
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;">
+  <div class="products-grid">
     {% for product in cat_products %}
       {% include product-card.html product=product %}
     {% endfor %}
   </div>
   {% else %}
-  <div style="text-align:center;padding:80px 20px;color:var(--color-muted-gray);">
-    <p style="font-size:16px;">محصولی در این دسته‌بندی یافت نشد.</p>
-    <a href="{{ '/products/' | relative_url }}" class="btn-secondary" style="margin-top:16px;display:inline-flex;">مشاهده همه محصولات</a>
+  <div class="category-empty">
+    <p class="category-empty__text">محصولی در این دسته‌بندی یافت نشد.</p>
+    <a href="{{ '/products/' | relative_url }}" class="btn-secondary category-empty__link">مشاهده همه محصولات</a>
   </div>
   {% endif %}
 </div>

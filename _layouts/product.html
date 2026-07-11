@@ -3,20 +3,20 @@ layout: default
 schema_type: product
 ---
 
-<div style="max-width:1200px;margin:0 auto;padding:32px 16px 64px;">
+<div class="container--page-sm">
 
   <nav aria-label="مسیر صفحه" class="breadcrumb">
     <a href="{{ '/' | relative_url }}">خانه</a>
     <span class="rtl-flip">›</span>
     <a href="{{ '/categories/' | append: page.category | relative_url }}">{{ page.category }}</a>
     <span class="rtl-flip">›</span>
-    <span style="color:var(--color-ink-black);">{{ page.title }}</span>
+    <span class="breadcrumb__current">{{ page.title }}</span>
   </nav>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
+  <div class="product-grid-2col">
 
     <div data-gallery>
-      <div class="gallery-main" style="cursor:zoom-in;" title="کلیک برای بزرگنمایی">
+      <div class="gallery-main gallery-main--zoomable" title="کلیک برای بزرگنمایی">
         <img
           data-gallery-main
           src="{{ page.images[0] | relative_url }}"
@@ -53,16 +53,16 @@ schema_type: product
 
     <div>
       {% if page.brand %}
-      <p style="font-size:13px;color:var(--color-shop-violet);font-weight:600;margin-bottom:8px;letter-spacing:-0.02em;">{{ page.brand }}</p>
+      <p class="product-brand">{{ page.brand }}</p>
       {% endif %}
 
-      <h1 style="font-size:26px;font-weight:700;margin:0 0 12px;line-height:1.3;letter-spacing:-0.04em;">{{ page.title }}</h1>
+      <h1 class="product-title">{{ page.title }}</h1>
 
       {% if page.sku %}
-      <p style="font-size:12px;color:var(--color-muted-gray);margin-bottom:16px;">کد محصول: <span style="font-weight:600;color:var(--color-ink-black);">{{ page.sku }}</span></p>
+      <p class="product-sku">کد محصول: <span class="product-sku__value">{{ page.sku }}</span></p>
       {% endif %}
 
-      <div style="margin-bottom:20px;">
+      <div class="product-badge">
         {% if page.availability == 'in_stock' %}
         <span class="badge-in-stock">موجود در انبار</span>
         {% elsif page.availability == 'out_of_stock' %}
@@ -72,7 +72,7 @@ schema_type: product
         {% endif %}
       </div>
 
-      <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:24px;flex-wrap:wrap;">
+      <div class="product-pricing">
         <span class="price-current">{{ page.price | number_with_delimiter }} تومان</span>
         {% if page.old_price %}
         <span class="price-old">{{ page.old_price | number_with_delimiter }} تومان</span>
@@ -82,17 +82,17 @@ schema_type: product
       </div>
 
       {% if page.short_description %}
-      <p style="font-size:14px;color:var(--color-muted-gray);line-height:1.7;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--color-faint-border);">
+      <p class="product-short-desc">
         {{ page.short_description }}
       </p>
       {% endif %}
 
       {% if page.variants %}
-      <div style="margin-bottom:24px;">
+      <div class="product-variants">
         {% for variant in page.variants %}
-        <div style="margin-bottom:16px;">
-          <p style="font-size:13px;font-weight:600;margin-bottom:10px;color:var(--color-ink-black);">{{ variant.name }}:</p>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <div class="product-variant-group">
+          <p class="product-variant-label">{{ variant.name }}:</p>
+          <div class="product-variant-options">
             {% for option in variant.options %}
             <button
               class="variant-btn {% if forloop.first %}active{% endif %}"
@@ -110,8 +110,7 @@ schema_type: product
       {% endif %}
 
       <button
-        class="btn-primary"
-        style="width:100%;font-size:16px;padding:16px;"
+        class="btn-primary btn-primary--full"
         onclick="ContactModal.open({
           productName: '{{ page.title | escape }}',
           productUrl: '{{ page.url | absolute_url }}',
@@ -119,23 +118,23 @@ schema_type: product
           telegram: '{{ page.telegram_username }}',
           instagram: '{{ page.instagram_username }}'
         })"
-        {% if page.availability == 'out_of_stock' %}disabled style="width:100%;font-size:16px;padding:16px;opacity:.5;cursor:not-allowed;"{% endif %}
+        {% if page.availability == 'out_of_stock' %}disabled class="btn-primary btn-primary--disabled"{% endif %}
       >
         ارتباط برای خرید
       </button>
 
-      <p style="font-size:11px;color:var(--color-muted-gray);text-align:center;margin-top:10px;">
+      <p class="product-contact-note">
         ارتباط مستقیم از طریق واتساپ، تلگرام یا اینستاگرام
       </p>
     </div>
   </div>
 
   {% if page.specifications %}
-  <section style="margin-top:56px;" aria-labelledby="specs-heading">
+  <section class="product-section" aria-labelledby="specs-heading">
     <div class="section-header">
       <h2 id="specs-heading" class="section-header__title">مشخصات فنی</h2>
     </div>
-    <div style="background:var(--color-pure-white);border-radius:20px;box-shadow:var(--shadow-sm);overflow:hidden;">
+    <div class="product-specs">
       <table class="specs-table" aria-label="جدول مشخصات فنی {{ page.title }}">
         <tbody>
           {% for spec in page.specifications %}
@@ -150,21 +149,21 @@ schema_type: product
   </section>
   {% endif %}
 
-  <section style="margin-top:56px;" aria-labelledby="desc-heading">
+  <section class="product-section" aria-labelledby="desc-heading">
     <div class="section-header">
       <h2 id="desc-heading" class="section-header__title">توضیحات کامل</h2>
     </div>
-    <div style="background:var(--color-pure-white);border-radius:20px;box-shadow:var(--shadow-sm);padding:32px;font-size:15px;line-height:1.8;color:var(--color-slate-ink);">
+    <div class="product-description">
       {{ content }}
     </div>
   </section>
 
   {% if page.related_products %}
-  <section style="margin-top:56px;" aria-labelledby="related-heading">
+  <section class="product-section" aria-labelledby="related-heading">
     <div class="section-header">
       <h2 id="related-heading" class="section-header__title">محصولات مرتبط</h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;">
+    <div class="product-related-grid">
       {% for slug in page.related_products %}
         {% assign related = site.products | where: "slug", slug | first %}
         {% if related %}
@@ -176,11 +175,11 @@ schema_type: product
   {% else %}
     {% assign related_by_cat = site.products | where: "category", page.category | reject: "slug", page.slug | limit: 4 %}
     {% if related_by_cat.size > 0 %}
-    <section style="margin-top:56px;" aria-labelledby="related-heading">
+    <section class="product-section" aria-labelledby="related-heading">
       <div class="section-header">
         <h2 id="related-heading" class="section-header__title">محصولات مشابه</h2>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;">
+      <div class="product-related-grid">
         {% for prod in related_by_cat %}
           {% include product-card.html product=prod %}
         {% endfor %}
@@ -190,11 +189,3 @@ schema_type: product
   {% endif %}
 
 </div>
-
-<style>
-  @media (max-width: 768px) {
-    [style*="grid-template-columns:1fr 1fr"] {
-      grid-template-columns: 1fr !important;
-    }
-  }
-</style>

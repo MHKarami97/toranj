@@ -68,7 +68,7 @@ const Gallery = (() => {
       <img class="lightbox-img" src="${src}" alt="${alt || ''}">
       <button
         aria-label="بستن"
-        style="position:absolute;top:20px;left:20px;background:rgba(255,255,255,.2);border:none;border-radius:50%;width:44px;height:44px;cursor:pointer;color:white;font-size:24px;display:flex;align-items:center;justify-content:center;"
+        class="lightbox-close"
       >×</button>
     `;
 
@@ -131,42 +131,42 @@ const ContactModal = (() => {
 
     modal.innerHTML = `
       <div class="modal-box">
-        <h2 id="modal-title" style="font-size:18px;font-weight:700;margin-bottom:8px;">روش ارتباط را انتخاب کنید</h2>
-        <p style="font-size:13px;color:var(--color-muted-gray);margin-bottom:24px;">برای خرید «${productName}» با ما در ارتباط باشید</p>
+        <h2 id="modal-title" class="modal-title">روش ارتباط را انتخاب کنید</h2>
+        <p class="modal-desc">برای خرید «${productName}» با ما در ارتباط باشید</p>
 
-        <div style="display:flex;flex-direction:column;gap:12px;">
+        <div class="modal-channels">
           ${whatsapp ? `
           <a href="${waUrl}" target="_blank" rel="noopener noreferrer"
-            style="display:flex;align-items:center;gap:16px;padding:16px 20px;border-radius:16px;border:1px solid var(--color-faint-border);text-decoration:none;color:var(--color-ink-black);">
-            <span style="width:44px;height:44px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;">WA</span>
+            class="modal-channel">
+            <span class="modal-channel-icon modal-channel-icon--wa">WA</span>
             <div>
-              <div style="font-size:15px;font-weight:600;">واتساپ</div>
-              <div style="font-size:12px;color:var(--color-muted-gray);">پیام مستقیم با پیش‌نویس آماده</div>
+              <div class="modal-channel-name">واتساپ</div>
+              <div class="modal-channel-desc">پیام مستقیم با پیش‌نویس آماده</div>
             </div>
           </a>` : ''}
 
           ${telegram ? `
           <a href="${tgUrl}" target="_blank" rel="noopener noreferrer"
-            style="display:flex;align-items:center;gap:16px;padding:16px 20px;border-radius:16px;border:1px solid var(--color-faint-border);text-decoration:none;color:var(--color-ink-black);">
-            <span style="width:44px;height:44px;background:#229ED9;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;">TG</span>
+            class="modal-channel">
+            <span class="modal-channel-icon modal-channel-icon--tg">TG</span>
             <div>
-              <div style="font-size:15px;font-weight:600;">تلگرام</div>
-              <div style="font-size:12px;color:var(--color-muted-gray);">@${telegram}</div>
+              <div class="modal-channel-name">تلگرام</div>
+              <div class="modal-channel-desc">@${telegram}</div>
             </div>
           </a>` : ''}
 
           ${instagram ? `
           <a href="${igUrl}" target="_blank" rel="noopener noreferrer"
-            style="display:flex;align-items:center;gap:16px;padding:16px 20px;border-radius:16px;border:1px solid var(--color-faint-border);text-decoration:none;color:var(--color-ink-black);">
-            <span style="width:44px;height:44px;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;">IG</span>
+            class="modal-channel">
+            <span class="modal-channel-icon modal-channel-icon--ig">IG</span>
             <div>
-              <div style="font-size:15px;font-weight:600;">اینستاگرام</div>
-              <div style="font-size:12px;color:var(--color-muted-gray);">@${instagram}</div>
+              <div class="modal-channel-name">اینستاگرام</div>
+              <div class="modal-channel-desc">@${instagram}</div>
             </div>
           </a>` : ''}
         </div>
 
-        <button onclick="ContactModal.close()" style="margin-top:20px;width:100%;padding:12px;border:1px solid var(--color-faint-border);background:none;border-radius:9999px;font-family:var(--font-primary);font-size:14px;cursor:pointer;color:var(--color-muted-gray);">
+        <button onclick="ContactModal.close()" class="modal-close">
           بستن
         </button>
       </div>

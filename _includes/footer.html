@@ -1,52 +1,52 @@
 <footer class="site-footer" role="contentinfo">
-  <div style="max-width:1200px;margin:0 auto;padding:0 24px;">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:40px;">
+  <div class="footer-container">
+    <div class="footer-grid">
 
       <div>
-        <h2 style="font-size:20px;font-weight:700;color:white;letter-spacing:-0.05em;margin-bottom:12px;">
+        <h2 class="footer-brand__title">
           {{ site.title }}
         </h2>
-        <p style="font-size:13px;line-height:1.7;margin-bottom:20px;">
+        <p class="footer-brand__desc">
           {{ site.description }}
         </p>
-        <div style="display:flex;gap:10px;">
+        <div class="footer-social">
           {% if site.data.settings.instagram %}
           <a href="https://instagram.com/{{ site.data.settings.instagram }}" target="_blank" rel="noopener" aria-label="اینستاگرام"
-            style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:white;">IG</a>
+            class="footer-social__link">IG</a>
           {% endif %}
           {% if site.data.settings.telegram %}
           <a href="https://t.me/{{ site.data.settings.telegram }}" target="_blank" rel="noopener" aria-label="تلگرام"
-            style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:white;">TG</a>
+            class="footer-social__link">TG</a>
           {% endif %}
           {% if site.data.settings.whatsapp %}
           <a href="https://wa.me/{{ site.data.settings.whatsapp }}" target="_blank" rel="noopener" aria-label="واتساپ"
-            style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:white;">WA</a>
+            class="footer-social__link">WA</a>
           {% endif %}
         </div>
       </div>
 
       <div>
-        <h3 style="font-size:14px;font-weight:600;color:white;margin-bottom:16px;letter-spacing:-0.02em;">دسترسی سریع</h3>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;">
-          <li><a href="{{ '/' | relative_url }}" style="font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;">خانه</a></li>
-          <li><a href="{{ '/products/' | relative_url }}" style="font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;">همه محصولات</a></li>
-          <li><a href="{{ '/about/' | relative_url }}" style="font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;">درباره ما</a></li>
-          <li><a href="{{ '/faq/' | relative_url }}" style="font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;">سوالات متداول</a></li>
-          <li><a href="{{ '/contact/' | relative_url }}" style="font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;">تماس با ما</a></li>
+        <h3 class="footer-links__title">دسترسی سریع</h3>
+        <ul class="footer-links">
+          <li><a href="{{ '/' | relative_url }}" class="footer-link">خانه</a></li>
+          <li><a href="{{ '/products/' | relative_url }}" class="footer-link">همه محصولات</a></li>
+          <li><a href="{{ '/about/' | relative_url }}" class="footer-link">درباره ما</a></li>
+          <li><a href="{{ '/faq/' | relative_url }}" class="footer-link">سوالات متداول</a></li>
+          <li><a href="{{ '/contact/' | relative_url }}" class="footer-link">تماس با ما</a></li>
         </ul>
       </div>
 
       <div>
-        <h3 style="font-size:14px;font-weight:600;color:white;margin-bottom:16px;letter-spacing:-0.02em;">قوانین</h3>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;">
-          <li><a href="{{ '/terms/' | relative_url }}" style="font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;">قوانین و مقررات</a></li>
-          <li><a href="{{ '/privacy/' | relative_url }}" style="font-size:13px;color:rgba(255,255,255,.65);text-decoration:none;">حریم خصوصی</a></li>
+        <h3 class="footer-links__title">قوانین</h3>
+        <ul class="footer-links">
+          <li><a href="{{ '/terms/' | relative_url }}" class="footer-link">قوانین و مقررات</a></li>
+          <li><a href="{{ '/privacy/' | relative_url }}" class="footer-link">حریم خصوصی</a></li>
         </ul>
       </div>
 
       <div>
-        <h3 style="font-size:14px;font-weight:600;color:white;margin-bottom:16px;letter-spacing:-0.02em;">اطلاعات تماس</h3>
-        <div style="display:flex;flex-direction:column;gap:10px;font-size:13px;color:rgba(255,255,255,.65);">
+        <h3 class="footer-links__title">اطلاعات تماس</h3>
+        <div class="footer-contact">
           {% if site.data.settings.phone %}<div>{{ site.data.settings.phone }}</div>{% endif %}
           {% if site.data.settings.email %}<div>{{ site.data.settings.email }}</div>{% endif %}
           {% if site.data.settings.address %}<div>{{ site.data.settings.address }}</div>{% endif %}
@@ -54,11 +54,11 @@
       </div>
     </div>
 
-    <div style="border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;">
-      <p style="font-size:12px;color:rgba(255,255,255,.45);margin:0;">
+    <div class="footer-bottom">
+      <p class="footer-bottom__text">
         &copy; {{ 'now' | date: "%Y" }} {{ site.title }}. تمامی حقوق محفوظ است.
       </p>
-      <p style="font-size:12px;color:rgba(255,255,255,.45);margin:0;">
+      <p class="footer-bottom__text">
         ساخته شده توسط mhkarami97.ir
       </p>
     </div>

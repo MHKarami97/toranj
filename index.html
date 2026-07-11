@@ -4,33 +4,33 @@ title: "فروشگاه آنلاین — خرید محصولات با کیفیت"
 description: "خرید آنلاین محصولات با کیفیت، تنوع بالا و ارتباط مستقیم از طریق واتساپ و تلگرام"
 ---
 
-<div style="max-width:1200px;margin:0 auto;padding:0 16px;">
+<div class="container">
 
   <section
     data-hero-slider
-    style="position:relative;margin:32px 0 64px;background:var(--color-pure-white);border-radius:28px;box-shadow:var(--shadow-card);overflow:hidden;min-height:320px;"
+    class="hero-slider"
     aria-label="بنرهای ویژه"
   >
-    <div data-slide style="padding:48px 40px;display:flex;align-items:center;gap:32px;flex-wrap:wrap;">
-      <div style="flex:1;min-width:240px;">
-        <p style="font-size:12px;font-weight:600;color:var(--color-shop-violet);letter-spacing:0.05em;text-transform:uppercase;margin-bottom:12px;">جدیدترین محصولات</p>
-        <h1 style="font-size:32px;font-weight:700;letter-spacing:-0.05em;line-height:1.2;margin-bottom:16px;">کشف محصولات<br>با کیفیت برتر</h1>
-        <p style="font-size:15px;color:var(--color-muted-gray);line-height:1.6;margin-bottom:28px;">بهترین انتخاب‌ها با ارتباط مستقیم و بدون واسطه</p>
+    <div data-slide class="hero-slide">
+      <div class="hero-slide__content">
+        <p class="hero-slide__label">جدیدترین محصولات</p>
+        <h1 class="hero-slide__title">کشف محصولات<br>با کیفیت برتر</h1>
+        <p class="hero-slide__desc">بهترین انتخاب‌ها با ارتباط مستقیم و بدون واسطه</p>
         <a href="{{ '/products/' | relative_url }}" class="btn-primary">مشاهده محصولات</a>
       </div>
-      <div style="flex-shrink:0;width:220px;height:220px;background:var(--color-canvas-mist);border-radius:20px;overflow:hidden;">
+      <div class="hero-slide__media">
         {% assign featured = site.products | first %}
         {% if featured %}
-        <img src="{{ featured.images[0] | relative_url }}" alt="{{ featured.title }}" style="width:100%;height:100%;object-fit:cover;" loading="eager">
+        <img src="{{ featured.images[0] | relative_url }}" alt="{{ featured.title }}" loading="eager">
         {% endif %}
       </div>
     </div>
 
-    <button data-slide-prev aria-label="قبلی" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:white;border:1px solid var(--color-faint-border);box-shadow:var(--shadow-lg);cursor:pointer;display:flex;align-items:center;justify-content:center;">‹</button>
-    <button data-slide-next aria-label="بعدی" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;background:white;border:1px solid var(--color-faint-border);box-shadow:var(--shadow-lg);cursor:pointer;display:flex;align-items:center;justify-content:center;">›</button>
+    <button data-slide-prev aria-label="قبلی" class="hero-slider__btn hero-slider__btn--prev">‹</button>
+    <button data-slide-next aria-label="بعدی" class="hero-slider__btn hero-slider__btn--next">›</button>
   </section>
 
-  <section style="margin-bottom:40px;max-width:600px;margin-left:auto;margin-right:auto;" aria-label="جستجو">
+  <section class="search-section" aria-label="جستجو">
     <form action="{{ '/products/' | relative_url }}" method="get" role="search">
       <div class="search-bar">
         <input
@@ -47,10 +47,10 @@ description: "خرید آنلاین محصولات با کیفیت، تنوع ب
     </form>
   </section>
 
-  <section style="margin-bottom:64px;" aria-label="دسته‌بندی‌های محصولات">
-    <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+  <section class="categories-section" aria-label="دسته‌بندی‌های محصولات">
+    <div class="categories-pills">
       <a href="{{ '/products/' | relative_url }}" class="category-pill">
-        <span style="width:28px;height:28px;background:var(--color-shop-violet);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:12px;">همه</span>
+        <span class="category-pill__icon">همه</span>
         همه محصولات
       </a>
       {% for cat in site.data.categories %}
@@ -62,12 +62,12 @@ description: "خرید آنلاین محصولات با کیفیت، تنوع ب
     </div>
   </section>
 
-  <section style="margin-bottom:64px;" aria-labelledby="featured-heading">
+  <section class="featured-section" aria-labelledby="featured-heading">
     <div class="section-header">
       <h2 id="featured-heading" class="section-header__title">محصولات ویژه</h2>
-      <a href="{{ '/products/' | relative_url }}" style="font-size:13px;color:var(--color-shop-violet);text-decoration:none;margin-right:auto;margin-left:0;">مشاهده همه</a>
+      <a href="{{ '/products/' | relative_url }}" class="section-link">مشاهده همه</a>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;">
+    <div class="featured-grid">
       {% assign featured_products = site.products | limit: 8 %}
       {% for product in featured_products %}
         {% include product-card.html product=product %}
@@ -75,44 +75,45 @@ description: "خرید آنلاین محصولات با کیفیت، تنوع ب
     </div>
   </section>
 
-  <section style="margin-bottom:64px;" aria-labelledby="cats-heading">
+  <section class="categories-section" aria-labelledby="cats-heading">
     <div class="section-header">
       <h2 id="cats-heading" class="section-header__title">دسته‌بندی‌ها</h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;">
+    <div class="category-grid">
       {% for cat in site.data.categories %}
       <a href="{{ '/categories/' | append: cat.slug | relative_url }}"
-        style="display:block;border-radius:24px;overflow:hidden;text-decoration:none;position:relative;aspect-ratio:4/3;background:{{ cat.bg_color | default: '#f2f4f5' }};"
+        class="category-card"
+        style="background:{{ cat.bg_color | default: '#f2f4f5' }};"
       >
         {% if cat.image %}
-        <img src="{{ cat.image | relative_url }}" alt="دسته‌بندی {{ cat.name }}" style="width:100%;height:100%;padding:20px;" loading="lazy">
+        <img src="{{ cat.image | relative_url }}" alt="دسته‌بندی {{ cat.name }}" class="category-card__img" loading="lazy">
         {% endif %}
-        <div style="position:absolute;bottom:0;right:0;left:0;padding:16px;background:linear-gradient(to top,rgba(0,0,0,.6),transparent);">
-          <span style="font-size:15px;font-weight:600;color:white;">{{ cat.name }}</span>
+        <div class="category-card__overlay">
+          <span class="category-card__name">{{ cat.name }}</span>
         </div>
       </a>
       {% endfor %}
     </div>
   </section>
 
-  <section style="margin-bottom:64px;background:var(--color-pure-white);border-radius:28px;box-shadow:var(--shadow-sm);padding:48px 40px;" aria-labelledby="why-heading">
-    <h2 id="why-heading" style="font-size:22px;font-weight:700;letter-spacing:-0.04em;text-align:center;margin-bottom:40px;">چرا ما؟</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;">
-      <div style="text-align:center;">
-        <h3 style="font-size:15px;font-weight:600;margin-bottom:8px;">ارتباط مستقیم</h3>
-        <p style="font-size:13px;color:var(--color-muted-gray);">بدون واسطه، مستقیم با فروشنده در ارتباط باشید</p>
+  <section class="why-section" aria-labelledby="why-heading">
+    <h2 id="why-heading" class="why-section__title">چرا ما؟</h2>
+    <div class="why-grid">
+      <div class="why-item">
+        <h3 class="why-item__title">ارتباط مستقیم</h3>
+        <p class="why-item__desc">بدون واسطه، مستقیم با فروشنده در ارتباط باشید</p>
       </div>
-      <div style="text-align:center;">
-        <h3 style="font-size:15px;font-weight:600;margin-bottom:8px;">تضمین کیفیت</h3>
-        <p style="font-size:13px;color:var(--color-muted-gray);">محصولات اصل با گارانتی معتبر</p>
+      <div class="why-item">
+        <h3 class="why-item__title">تضمین کیفیت</h3>
+        <p class="why-item__desc">محصولات اصل با گارانتی معتبر</p>
       </div>
-      <div style="text-align:center;">
-        <h3 style="font-size:15px;font-weight:600;margin-bottom:8px;">پشتیبانی سریع</h3>
-        <p style="font-size:13px;color:var(--color-muted-gray);">پاسخگویی ۲۴ ساعته از طریق واتساپ و تلگرام</p>
+      <div class="why-item">
+        <h3 class="why-item__title">پشتیبانی سریع</h3>
+        <p class="why-item__desc">پاسخگویی ۲۴ ساعته از طریق واتساپ و تلگرام</p>
       </div>
-      <div style="text-align:center;">
-        <h3 style="font-size:15px;font-weight:600;margin-bottom:8px;">رضایت مشتری</h3>
-        <p style="font-size:13px;color:var(--color-muted-gray);">صدها مشتری راضی و اعتماد شده</p>
+      <div class="why-item">
+        <h3 class="why-item__title">رضایت مشتری</h3>
+        <p class="why-item__desc">صدها مشتری راضی و اعتماد شده</p>
       </div>
     </div>
   </section>
