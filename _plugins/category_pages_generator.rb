@@ -1,5 +1,5 @@
 module Jekyll
-  class CategoryPage < Page
+  class CategoryPage < Jekyll::PageWithoutAFile
     def initialize(site, base, slug, category_name)
       @site = site
       @base = base
@@ -7,11 +7,14 @@ module Jekyll
       @name = "index.html"
 
       self.process(@name)
-      self.read_yaml(File.join(base, "_layouts"), "category.html")
 
+      self.data = {}
+      self.data["layout"] = "category"
       self.data["title"] = category_name
       self.data["category_name"] = category_name
       self.data["permalink"] = "/categories/#{slug}/"
+
+      self.content = ""
     end
   end
 
@@ -21,9 +24,16 @@ module Jekyll
 
     def generate(site)
       categories = site.data["categories"] || []
+      seen_slugs = []
 
       categories.each do |cat|
         next unless cat["slug"] && cat["name"]
+
+        if seen_slugs.include?(cat["slug"])
+          raise "Duplicate category slug detected: #{cat['slug']}"
+        end
+        seen_slugs << cat["slug"]
+
         site.pages << CategoryPage.new(site, site.source, cat["slug"], cat["name"])
       end
     end
