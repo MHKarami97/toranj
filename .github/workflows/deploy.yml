@@ -31,7 +31,7 @@ jobs:
         run: npm ci
 
       - name: Build Tailwind CSS
-        run: npx tailwindcss -i ./assets/css/main.css -o ./_site_css/main.css --minify
+        run: npx @tailwindcss/cli -i ./assets/css/main.css -o ./_site_css/main.css --minify
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
