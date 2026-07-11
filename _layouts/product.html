@@ -157,34 +157,26 @@ schema_type: product
     </div>
   </section>
 
-  {% if page.related_products %}
+  {% assign same_cat = site.products | where: "category", page.category | limit: 5 %}
+  {% assign found_any = false %}
+  {% for p in same_cat %}
+    {% if p.slug != page.slug %}
+      {% assign found_any = true %}
+    {% endif %}
+  {% endfor %}
+  {% if found_any %}
   <section class="product-section" aria-labelledby="related-heading">
     <div class="section-header">
-      <h2 id="related-heading" class="section-header__title">محصولات مرتبط</h2>
+      <h2 id="related-heading" class="section-header__title">محصولات مشابه</h2>
     </div>
     <div class="product-related-grid">
-      {% for slug in page.related_products %}
-        {% assign related = site.products | where: "slug", slug | first %}
-        {% if related %}
-          {% include product-card.html product=related %}
+      {% for prod in same_cat %}
+        {% if prod.slug != page.slug %}
+          {% include product-card.html product=prod %}
         {% endif %}
       {% endfor %}
     </div>
   </section>
-  {% else %}
-    {% assign related_by_cat = site.products | where: "category", page.category | reject: "slug", page.slug | limit: 4 %}
-    {% if related_by_cat.size > 0 %}
-    <section class="product-section" aria-labelledby="related-heading">
-      <div class="section-header">
-        <h2 id="related-heading" class="section-header__title">محصولات مشابه</h2>
-      </div>
-      <div class="product-related-grid">
-        {% for prod in related_by_cat %}
-          {% include product-card.html product=prod %}
-        {% endfor %}
-      </div>
-    </section>
-    {% endif %}
   {% endif %}
 
 </div>

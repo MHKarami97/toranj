@@ -30,7 +30,6 @@ short_description: "کیف دستی چرم طبیعی با طراحی مینیم
 whatsapp_number: "989121234567"
 telegram_username: "yourshop"
 instagram_username: "yourshop"
-related_products: []
 ---
 
 کیف دستی چرم آوا با استفاده از بهترین نوع چرم طبیعی گاوی تولید شده و ترکیبی از دوام بالا و ظاهر شیک را ارائه می‌دهد.
