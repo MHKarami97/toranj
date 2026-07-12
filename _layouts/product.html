@@ -8,7 +8,8 @@ schema_type: product
   <nav aria-label="مسیر صفحه" class="breadcrumb">
     <a href="{{ '/' | relative_url }}">خانه</a>
     <span class="rtl-flip">›</span>
-    <a href="{{ '/categories/' | append: page.category | relative_url }}">{{ page.category }}</a>
+    {% assign cat_data = site.data.categories | where: "slug", page.category | first %}
+    <a href="{{ '/categories/' | append: page.category | relative_url }}">{{ cat_data.name | default: page.category }}</a>
     <span class="rtl-flip">›</span>
     <span class="breadcrumb__current">{{ page.title }}</span>
   </nav>
