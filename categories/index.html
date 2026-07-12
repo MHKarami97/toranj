@@ -19,7 +19,7 @@ permalink: /categories/
       {% endif %}
       <div class="category-card__overlay--dark">
         <span class="category-card__name--lg">{{ cat.name }}</span>
-        {% assign count = site.products | where: "category", cat.name | size %}
+        {% assign count = site.products | where: "category", cat.slug | size %}
         <span class="category-card__count">{{ count }} محصول</span>
       </div>
     </a>
