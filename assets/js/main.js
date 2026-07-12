@@ -268,10 +268,56 @@ const HeroSlider = (() => {
   return { init };
 })();
 
+// ===== Custom Select Dropdown =====
+const CustomSelect = (() => {
+  const init = () => {
+    document.querySelectorAll('[data-custom-select]').forEach(select => {
+      const trigger = select.querySelector('.custom-select__trigger');
+      const options = select.querySelector('.custom-select__options');
+      const optionEls = select.querySelectorAll('.custom-select__option');
+      const hiddenSelect = select.querySelector('select');
+      const valueDisplay = select.querySelector('.custom-select__value');
+
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        document.querySelectorAll('[data-custom-select]').forEach(s => {
+          if (s !== select) s.classList.remove('custom-select--open');
+        });
+        select.classList.toggle('custom-select--open');
+      });
+
+      optionEls.forEach(option => {
+        option.addEventListener('click', () => {
+          const value = option.dataset.value;
+          const text = option.textContent;
+
+          optionEls.forEach(o => o.classList.remove('custom-select__option--selected'));
+          option.classList.add('custom-select__option--selected');
+
+          valueDisplay.textContent = text;
+          hiddenSelect.value = value;
+          select.classList.remove('custom-select--open');
+
+          filterProducts();
+        });
+      });
+    });
+
+    document.addEventListener('click', () => {
+      document.querySelectorAll('[data-custom-select]').forEach(s => {
+        s.classList.remove('custom-select--open');
+      });
+    });
+  };
+
+  return { init };
+})();
+
 // ===== DOM Ready Bootstrap =====
 document.addEventListener('DOMContentLoaded', () => {
   ThemeToggle.init();
   Accordion.init();
+  CustomSelect.init();
 
   const galleryEl = document.querySelector('[data-gallery]');
   if (galleryEl) Gallery.init(galleryEl);

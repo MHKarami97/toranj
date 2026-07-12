@@ -24,30 +24,45 @@ permalink: /products/
       </button>
     </div>
 
-    <select
-      id="category-filter"
-      onchange="filterProducts()"
-      class="filter-select"
-      aria-label="فیلتر بر اساس دسته‌بندی"
-    >
-      <option value="">همه دسته‌بندی‌ها</option>
-      {% assign categories = site.products | map: "category" | uniq | sort %}
-      {% for cat in categories %}
-      <option value="{{ cat }}">{{ cat }}</option>
-      {% endfor %}
-    </select>
+    <div class="custom-select" data-custom-select data-filter="category">
+      <button class="custom-select__trigger" type="button" aria-haspopup="listbox">
+        <span class="custom-select__value">همه دسته‌بندی‌ها</span>
+        <svg class="custom-select__arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <ul class="custom-select__options" role="listbox">
+        <li class="custom-select__option custom-select__option--selected" data-value="" role="option">همه دسته‌بندی‌ها</li>
+        {% assign categories = site.products | map: "category" | uniq | sort %}
+        {% for cat in categories %}
+        {% assign cat_data = site.data.categories | where: "slug", cat | first %}
+        <li class="custom-select__option" data-value="{{ cat }}" role="option">{{ cat_data.name | default: cat }}</li>
+        {% endfor %}
+      </ul>
+      <select id="category-filter" class="sr-only" tabindex="-1" aria-hidden="true">
+        <option value="">همه دسته‌بندی‌ها</option>
+        {% for cat in categories %}
+        <option value="{{ cat }}">{{ cat }}</option>
+        {% endfor %}
+      </select>
+    </div>
 
-    <select
-      id="availability-filter"
-      onchange="filterProducts()"
-      class="filter-select"
-      aria-label="فیلتر بر اساس موجودی"
-    >
-      <option value="">وضعیت موجودی</option>
-      <option value="in_stock">موجود</option>
-      <option value="out_of_stock">ناموجود</option>
-      <option value="preorder">پیش‌فروش</option>
-    </select>
+    <div class="custom-select" data-custom-select data-filter="availability">
+      <button class="custom-select__trigger" type="button" aria-haspopup="listbox">
+        <span class="custom-select__value">وضعیت موجودی</span>
+        <svg class="custom-select__arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <ul class="custom-select__options" role="listbox">
+        <li class="custom-select__option custom-select__option--selected" data-value="" role="option">وضعیت موجودی</li>
+        <li class="custom-select__option" data-value="in_stock" role="option">موجود</li>
+        <li class="custom-select__option" data-value="out_of_stock" role="option">ناموجود</li>
+        <li class="custom-select__option" data-value="preorder" role="option">پیش‌فروش</li>
+      </ul>
+      <select id="availability-filter" class="sr-only" tabindex="-1" aria-hidden="true">
+        <option value="">وضعیت موجودی</option>
+        <option value="in_stock">موجود</option>
+        <option value="out_of_stock">ناموجود</option>
+        <option value="preorder">پیش‌فروش</option>
+      </select>
+    </div>
 
     <span id="result-count" class="result-count"></span>
   </div>
