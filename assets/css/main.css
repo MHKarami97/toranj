@@ -956,8 +956,8 @@ body {
 }
 
 [dir="rtl"] .custom-select__arrow {
-  left: auto;
-  right: 12px;
+  right: auto;
+  left: 12px;
 }
 
 .custom-select--open .custom-select__arrow {
