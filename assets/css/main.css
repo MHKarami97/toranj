@@ -591,12 +591,11 @@ body {
   display: flex;
   align-items: center;
   gap: 32px;
-  flex-wrap: wrap;
 }
 
 .hero-slide__content {
   flex: 1;
-  min-width: 240px;
+  min-width: 0;
 }
 
 .hero-slide__label {
@@ -1576,5 +1575,13 @@ body {
 
   .product-grid-2col {
     grid-template-columns: 1fr;
+  }
+
+  .hero-slide {
+    flex-wrap: wrap;
+  }
+
+  .hero-slide__content {
+    min-width: 240px;
   }
 }
