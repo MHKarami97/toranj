@@ -1276,6 +1276,12 @@ body {
   text-decoration: none;
 }
 
+.footer-social__link img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+}
+
 .footer-links__title {
   font-size: 14px;
   font-weight: 600;
@@ -1385,6 +1391,12 @@ body {
   align-items: center;
   justify-content: center;
   color: white;
+  flex-shrink: 0;
+}
+
+.contact-icon img {
+  width: 28px;
+  height: 28px;
 }
 
 .contact-icon--wa {
@@ -1505,6 +1517,12 @@ body {
   align-items: center;
   justify-content: center;
   color: white;
+  flex-shrink: 0;
+}
+
+.modal-channel-icon svg {
+  width: 22px;
+  height: 22px;
 }
 
 .modal-channel-icon--wa {

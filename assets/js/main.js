@@ -138,7 +138,7 @@ const ContactModal = (() => {
           ${whatsapp ? `
           <a href="${waUrl}" target="_blank" rel="noopener noreferrer"
             class="modal-channel">
-            <span class="modal-channel-icon modal-channel-icon--wa">WA</span>
+            <span class="modal-channel-icon modal-channel-icon--wa"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
             <div>
               <div class="modal-channel-name">واتساپ</div>
               <div class="modal-channel-desc">پیام مستقیم با پیش‌نویس آماده</div>
@@ -148,7 +148,7 @@ const ContactModal = (() => {
           ${telegram ? `
           <a href="${tgUrl}" target="_blank" rel="noopener noreferrer"
             class="modal-channel">
-            <span class="modal-channel-icon modal-channel-icon--tg">TG</span>
+            <span class="modal-channel-icon modal-channel-icon--tg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4z"/></svg></span>
             <div>
               <div class="modal-channel-name">تلگرام</div>
               <div class="modal-channel-desc">@${telegram}</div>
@@ -158,7 +158,7 @@ const ContactModal = (() => {
           ${instagram ? `
           <a href="${igUrl}" target="_blank" rel="noopener noreferrer"
             class="modal-channel">
-            <span class="modal-channel-icon modal-channel-icon--ig">IG</span>
+            <span class="modal-channel-icon modal-channel-icon--ig"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></span>
             <div>
               <div class="modal-channel-name">اینستاگرام</div>
               <div class="modal-channel-desc">@${instagram}</div>

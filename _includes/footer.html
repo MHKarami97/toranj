@@ -12,15 +12,15 @@
         <div class="footer-social">
           {% if site.data.settings.instagram %}
           <a href="https://instagram.com/{{ site.data.settings.instagram }}" target="_blank" rel="noopener" aria-label="اینستاگرام"
-            class="footer-social__link">IG</a>
+            class="footer-social__link"><img src="{{ '/assets/img/icon-instagram.svg' | relative_url }}" alt="" width="20" height="20"></a>
           {% endif %}
           {% if site.data.settings.telegram %}
           <a href="https://t.me/{{ site.data.settings.telegram }}" target="_blank" rel="noopener" aria-label="تلگرام"
-            class="footer-social__link">TG</a>
+            class="footer-social__link"><img src="{{ '/assets/img/icon-telegram.svg' | relative_url }}" alt="" width="20" height="20"></a>
           {% endif %}
           {% if site.data.settings.whatsapp %}
           <a href="https://wa.me/{{ site.data.settings.whatsapp }}" target="_blank" rel="noopener" aria-label="واتساپ"
-            class="footer-social__link">WA</a>
+            class="footer-social__link"><img src="{{ '/assets/img/icon-whatsapp.svg' | relative_url }}" alt="" width="20" height="20"></a>
           {% endif %}
         </div>
       </div>
