@@ -255,7 +255,7 @@ const HeroSlider = (() => {
 
   const show = (idx) => {
     slides.forEach((s, i) => {
-      s.style.display = i === idx ? 'block' : 'none';
+      s.style.display = i === idx ? 'flex' : 'none';
     });
     current = idx;
   };
