@@ -11,23 +11,25 @@ description: "خرید آنلاین محصولات با کیفیت، تنوع ب
     class="hero-slider"
     aria-label="بنرهای ویژه"
   >
-    <div data-slide class="hero-slide">
+    {% assign hero_products = site.products | limit: 5 %}
+    {% for product in hero_products %}
+    <div data-slide class="hero-slide" {% if forloop.first == false %}style="display:none;"{% endif %}>
       <div class="hero-slide__content">
-        <p class="hero-slide__label">جدیدترین محصولات</p>
-        <h1 class="hero-slide__title">کشف محصولات<br>با کیفیت برتر</h1>
-        <p class="hero-slide__desc">بهترین انتخاب‌ها با ارتباط مستقیم و بدون واسطه</p>
-        <a href="{{ '/products/' | relative_url }}" class="btn-primary">مشاهده محصولات</a>
+        <p class="hero-slide__label">{{ product.category }}</p>
+        <h1 class="hero-slide__title">{{ product.title }}</h1>
+        <p class="hero-slide__desc">{{ product.short_description }}</p>
+        <a href="{{ product.url | relative_url }}" class="btn-primary">مشاهده محصول</a>
       </div>
       <div class="hero-slide__media">
-        {% assign featured = site.products | first %}
-        {% if featured %}
-        <img src="{{ featured.images[0] | relative_url }}" alt="{{ featured.title }}" loading="eager">
-        {% endif %}
+        <img src="{{ product.images[0] | relative_url }}" alt="{{ product.title }}" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
       </div>
     </div>
+    {% endfor %}
 
+    {% if hero_products.size > 1 %}
     <button data-slide-prev aria-label="قبلی" class="hero-slider__btn hero-slider__btn--prev">‹</button>
     <button data-slide-next aria-label="بعدی" class="hero-slider__btn hero-slider__btn--next">›</button>
+    {% endif %}
   </section>
 
   <section class="search-section" aria-label="جستجو">
