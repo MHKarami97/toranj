@@ -587,7 +587,7 @@ body {
 }
 
 .hero-slide {
-  padding: 48px 40px;
+  padding: 48px 60px;
   display: flex;
   align-items: center;
   gap: 32px;
@@ -619,7 +619,15 @@ body {
   font-size: 15px;
   color: var(--color-muted-gray);
   line-height: 1.6;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
+}
+
+.hero-slide__pricing {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
 }
 
 .hero-slide__media {
@@ -654,11 +662,11 @@ body {
 }
 
 .hero-slider__btn--prev {
-  right: 16px;
+  right: 5px;
 }
 
 .hero-slider__btn--next {
-  left: 16px;
+  left: 5px;
 }
 
 .search-section {

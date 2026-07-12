@@ -7,8 +7,8 @@ old_price: 1650000
 category: "leather"
 tags: [کیف, چرم, زنانه]
 images:
-  - /assets/img/products/01.png
   - /assets/img/products/02.png
+  - /assets/img/products/01.png
   - /assets/img/products/03.png
 availability: in_stock
 brand: "چرم آوا"
@@ -26,7 +26,7 @@ specifications:
     value: 30x22x12 سانتی‌متر
   - key: کشور سازنده
     value: ایران
-short_description: "کیف دستی چرم طبیعی با طراحی مینیمال، مناسب استفاده روزمره و اداری"
+short_description: "کیف دستی چرم طبیعی با طراحی مینیمال، مناسب استفاده روزمره و صنعتی"
 whatsapp_number: "989121234567"
 telegram_username: "yourshop"
 instagram_username: "yourshop"
