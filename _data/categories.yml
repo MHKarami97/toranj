@@ -10,12 +10,6 @@
   bg_color: "#fff7ed"
   image: "/assets/img/categories/kilim.webp"
 
-- name: "صنایع دستی استان‌ها"
-  slug: "provincial-handicrafts"
-  color: "#5433eb"
-  bg_color: "#f2f4f5"
-  image: "/assets/img/categories/provincial.webp"
-
 - name: "سفال و سرامیک"
   slug: "pottery"
   color: "#0891b2"
@@ -40,12 +34,6 @@
   bg_color: "#f7fee7"
   image: "/assets/img/categories/metalwork.webp"
 
-- name: "سایر آثار دست‌ساز"
-  slug: "other-handmade"
-  color: "#16a34a"
-  bg_color: "#f0fdf4"
-  image: "/assets/img/categories/other-handmade.webp"
-
 - name: "چرم"
   slug: "leather"
   color: "#78350f"
@@ -57,3 +45,15 @@
   color: "#a16207"
   bg_color: "#fefce8"
   image: "/assets/img/categories/candle.webp"
+
+- name: "سایر آثار دست‌ساز"
+  slug: "other-handmade"
+  color: "#16a34a"
+  bg_color: "#f0fdf4"
+  image: "/assets/img/categories/other-handmade.webp"
+
+- name: "صنایع دستی استان‌ها"
+  slug: "provincial-handicrafts"
+  color: "#5433eb"
+  bg_color: "#f2f4f5"
+  image: "/assets/img/categories/provincial.webp"
