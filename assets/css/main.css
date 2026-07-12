@@ -728,7 +728,6 @@ body {
 .category-card__img {
   width: 100%;
   height: 100%;
-  padding: 20px;
 }
 
 .category-card__overlay {
@@ -770,6 +769,12 @@ body {
 
 .why-item {
   text-align: center;
+}
+
+.why-item__icon {
+  display: block;
+  margin: 0 auto 16px;
+  color: var(--color-shop-violet);
 }
 
 .why-item__title {
