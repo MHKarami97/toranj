@@ -114,9 +114,9 @@ schema_type: product
         onclick="ContactModal.open({
           productName: '{{ page.title | escape }}',
           productUrl: '{{ page.url | absolute_url }}',
-          whatsapp: '{{ page.whatsapp_number }}',
-          telegram: '{{ page.telegram_username }}',
-          instagram: '{{ page.instagram_username }}'
+          whatsapp: '{{ site.data.settings.whatsapp }}',
+          telegram: '{{ site.data.settings.telegram }}',
+          instagram: '{{ site.data.settings.instagram }}'
         })"
         {% if page.availability == 'out_of_stock' %}disabled class="btn-primary btn-primary--disabled"{% endif %}
       >

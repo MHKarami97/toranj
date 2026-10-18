@@ -27,9 +27,6 @@ specifications:
   - key: کشور سازنده
     value: ایران
 short_description: "کیف دستی چرم طبیعی با طراحی مینیمال، مناسب استفاده روزمره و اداری"
-whatsapp_number: "989121234567"
-telegram_username: "yourshop"
-instagram_username: "yourshop"
 ---
 
 کیف دستی چرم آوا با استفاده از بهترین نوع چرم طبیعی گاوی تولید شده و ترکیبی از دوام بالا و ظاهر شیک را ارائه می‌دهد.
